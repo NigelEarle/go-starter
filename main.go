@@ -1,5 +1,13 @@
 package main
 
+import (
+  "fmt"
+  "os"
+)
+
 func main() {
-  println("its over 9000");
+  if len(os.Args) != 2 {
+    os.Exit(1)
+  }
+  fmt.Println("It's over", os.Args[1])
 }
