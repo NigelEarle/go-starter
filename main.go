@@ -4,22 +4,17 @@ import (
   "fmt"
 )
 
-// Structures
-
-type Saiyan struct {
-  Name string
-  Power int
+// No constructors, just functions that return type. Weird
+func NewSaiyan(name string power int) {
+  *Saiyan {
+    return &Saiyan{
+      Name: name,
+      Power: power,
+    }
+  }
 }
 
-func main(){
-  // `&` assigns the address
-  goku := &Saiyan{"Goku", 9000}
-  Super(goku)
-  fmt.Println(goku.Power)
-
-}
-
-// `*` assigns the pointer to address as copy
-func Super(s *Saiyan){
-  s = &Saiyan{"Gohan", 1000}
-}
+// Instantiate Structure
+goku := new(NewSaiyan)
+// same
+goku := &NewSaiyan{}
