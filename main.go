@@ -1,13 +1,12 @@
 package main
 
-import (
-  "fmt"
-)
+// function declarations can return multiple values
 
-func main() {
-  power := 9000
-  fmt.Printf("default power is now %d\n", power)
+func log(message string) {
+}
 
-  name, power := "Goku", 9000
-  fmt.Printf("%s power is now over %d\n", name, power)
+func add(a int, b int) int{
+}
+
+func power(name string) (int, bool){
 }
