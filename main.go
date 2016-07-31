@@ -4,28 +4,13 @@ import (
   "fmt"
 )
 
-type Person struct {
-  Name string
-}
+func main(){
+  scores := [4]int{123, 456, 9, 10}
+  // assign values on index
+  // scores[3] = 829
 
-// Introduce method on Person structure
-func (p *Person) Introduce() {
-  fmt.Printf("Hi, Im %s\n", p.Name)
-}
-
-// inherits Person structure through pointer
-type Saiyan struct {
-  *Person
-  Power int
-}
-
-func main() {
-  // instantiate Saiyan structure with Person address, name = Goku inherits to goku var
-  goku := &Saiyan {
-    Person: &Person{"Goku"},
-    Power: 9001,
+  for index, value := range scores {
+    // prints index and value
+    fmt.Println(index, value)
   }
-  // call introduce method
-  fmt.Printf(goku.Name)
-  goku.Introduce()
 }
