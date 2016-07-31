@@ -1,19 +1,23 @@
 package main
-// No constructors, just functions that return type. Weird
-func NewSaiyan(name string, power int)
-*Saiyan {
-  return &Saiyan {
-    Name: name,
-    Power: power,
-  }
+
+import (
+  "fmt"
+)
+
+type Saiyan struct {
+  Name string
+  Power int
+  Father *Saiyan
 }
 
-// Instantiate Structure
-goku := new(NewSaiyan)
-goku.Name = "Goku"
-goku.Power = 9000
-// same
-goku := &NewSaiyan{
-  Name: "Goku",
-  Power: 9000,
+func main(){
+  gohan := &Saiyan{
+    Name: "Gohan",
+    Power: 1000,
+    Father: &Saiyan {
+      Name: "Goku",
+      Power: 9001,
+      Father: nil,
+    },
+  }
 }
