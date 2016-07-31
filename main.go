@@ -1,16 +1,10 @@
 package main
-
-import (
-  "fmt"
-)
-
 // No constructors, just functions that return type. Weird
-func NewSaiyan(name string power int) {
-  *Saiyan {
-    return &Saiyan{
-      Name: name,
-      Power: power,
-    }
+func NewSaiyan(name string, power int)
+*Saiyan {
+  return &Saiyan {
+    Name: name,
+    Power: power,
   }
 }
 
