@@ -16,5 +16,10 @@ func NewSaiyan(name string power int) {
 
 // Instantiate Structure
 goku := new(NewSaiyan)
+goku.Name = "Goku"
+goku.Power = 9000
 // same
-goku := &NewSaiyan{}
+goku := &NewSaiyan{
+  Name: "Goku",
+  Power: 9000,
+}
