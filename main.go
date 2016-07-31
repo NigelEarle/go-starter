@@ -5,12 +5,7 @@ import (
 )
 
 func main(){
-  scores := [4]int{123, 456, 9, 10}
-  // assign values on index
-  // scores[3] = 829
-
-  for index, value := range scores {
-    // prints index and value
-    fmt.Println(index, value)
-  }
+  // slices; creating array with unkown array indexes
+  scores := []int{301, 12, 87, 23}
+  fmt.Println(scores)
 }
