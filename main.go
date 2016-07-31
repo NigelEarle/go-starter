@@ -1,12 +1,30 @@
 package main
 
-// function declarations can return multiple values
+import (
+  "fmt"
+)
 
-func log(message string) {
+// Structures
+
+type Saiyan struct {
+  Name string
+  Power int
 }
 
-func add(a int, b int) int{
+goku := Saiyan {
+  Name: "Goku",
+  Power: 9000,
 }
 
-func power(name string) (int, bool){
-}
+// ---- or ----
+
+goku := Goku{}
+
+// ------ or ------
+
+goku := Goku{ Name: "Goku" }
+goku.Power = 9000
+
+
+// ---- or -----
+goku := Goku{ "Goku", 9000 }
