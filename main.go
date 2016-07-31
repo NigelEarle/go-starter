@@ -11,20 +11,13 @@ type Saiyan struct {
   Power int
 }
 
-goku := Saiyan {
-  Name: "Goku",
-  Power: 9000,
+func main(){
+  goku := Saiyan{"Goku", 9000}
+  Super(goku)
+  fmt.Println(goku.Power)
+
 }
 
-// ---- or ----
-
-goku := Goku{}
-
-// ------ or ------
-
-goku := Goku{ Name: "Goku" }
-goku.Power = 9000
-
-
-// ---- or -----
-goku := Goku{ "Goku", 9000 }
+func Super(s Saiyan){
+  s.Power += 10000
+}
