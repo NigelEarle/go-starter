@@ -12,12 +12,14 @@ type Saiyan struct {
 }
 
 func main(){
+  // `&` assigns the address
   goku := &Saiyan{"Goku", 9000}
   Super(goku)
   fmt.Println(goku.Power)
 
 }
 
+// `*` assigns the pointer to address as copy
 func Super(s *Saiyan){
-  s.Power += 10000
+  s = &Saiyan{"Gohan", 1000}
 }
