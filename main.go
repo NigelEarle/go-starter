@@ -5,17 +5,17 @@ import (
 )
 
 func main(){
-  scores := make([]int,0 ,5)
-  c := cap(scores)
-  fmt.Println(c)
+  // 4 typical ways of making slices
+  names := []string{"leto", "jessica", "paul"}
+  fmt.Println("names", names)
 
-  for i := 0; i < 25; i++ {
-    scores = append(scores, i)
-    fmt.Println(scores)
-    // if capactiy changes, the array grows to accomodate the data
-    if cap(scores) != c {
-      c = cap(scores)
-      fmt.Println(c)
-    }
-  }
+  checks := make([]bool, 10)
+  fmt.Println("checks",checks)
+
+  var things []string
+  fmt.Println("things", things)
+
+  scores := make([]int, 0, 20)
+  fmt.Println("scores",scores)
+
 }
