@@ -5,17 +5,18 @@ import (
 )
 
 func main(){
-  // 4 typical ways of making slices
-  names := []string{"leto", "jessica", "paul"}
-  fmt.Println("names", names)
+  scores := []int{1, 2, 3, 4, 5}
+  scores = removeAtIndex(scores, 2)
+  fmt.Println(scores)
+}
 
-  checks := make([]bool, 10)
-  fmt.Println("checks",checks)
+func removeAtIndex(source []int, index int) []int {
+  fmt.Println("source length", len(source))
+  lastIndex := len(source) - 1
+  fmt.Println("removeAtIndex", lastIndex)
 
-  var things []string
-  fmt.Println("things", things)
+  fmt.Println("values to swap", source[index], source[lastIndex])
+  source[index], source[lastIndex] = source[lastIndex], source[index]
 
-  scores := make([]int, 0, 20)
-  fmt.Println("scores",scores)
-
+  return source[:lastIndex]
 }
