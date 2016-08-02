@@ -1,21 +1,15 @@
 package main
 
+// import built-in error package
 import (
-  "fmt"
-  "os"
-  "strconv"
+  "error"
 )
 
-func main(){
-  if len(os.Args) != 2 {
-    // exit if no error
-    os.Exit(1)
-  }
-  n, err := strconv.Atoi(os.Args[1])
+// or create error structure
+type error struct {
+  Error() string
+}
 
-  if err != nil {
-    fmt.Println("not a valid number")
-  } else {
-    fmt.Println(n)
-  }
+func main(){
+  
 }
