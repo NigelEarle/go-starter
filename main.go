@@ -2,14 +2,20 @@ package main
 
 import (
   "fmt"
+  "os"
+  "strconv"
 )
 
 func main(){
-  lookup := map[string]int{
-    "goku": 9001,
-    "gohan": 2004,
+  if len(os.Args) != 2 {
+    // exit if no error
+    os.Exit(1)
   }
-  for key, value := range lookup{
-    fmt.Println(key, value)
+  n, err := strconv.Atoi(os.Args[1])
+
+  if err != nil {
+    fmt.Println("not a valid number")
+  } else {
+    fmt.Println(n)
   }
 }
