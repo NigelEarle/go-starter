@@ -1,13 +1,13 @@
 package main
 
 import (
-  // import packages
+  "fmt"
 )
 
-// showcase modified if statements in Golang
-func main() {
-  // err only available inside of `if , else if, else` block
-	if err := process(); err != nil {
-    return err
-  }
+func main(){
+  fmt.Println(add(3, 4))
+}
+
+func add(a interface{}, b interface{}) interface{} {
+  return a.(int) + b.(int)
 }
