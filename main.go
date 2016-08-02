@@ -5,9 +5,15 @@ import (
 )
 
 func main(){
-  fmt.Println(add(3, 4))
+  add(3, 4)
 }
 
 func add(a interface{}, b interface{}) interface{} {
-  return a.(int) + b.(int)
+  switch a.(type) {
+    case int: 
+      fmt.Printf("a is now an int and equals %d\n", a)
+    default:
+      return nil
+  }
+  return nil
 }
