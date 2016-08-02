@@ -7,6 +7,7 @@ import (
 
 func main(){
   fmt.Println("start")
+  // run process() function as async like function or separate thread
   go process()
 
   time.Sleep(time.Millisecond * 10)
