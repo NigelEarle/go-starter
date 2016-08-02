@@ -1,15 +1,19 @@
 package main
 
-// import built-in error package
+
 import (
-  "error"
+  "errors"
+  "fmt"
 )
 
-// or create error structure
-type error struct {
-  Error() string
+func main(){
+  fmt.Println(process(0))
 }
 
-func main(){
-  
+func process(count int) error {
+  if count < 1 {
+    return errors.New("Invalid count")
+  }
+  // handle success case here
+  return nil
 }
