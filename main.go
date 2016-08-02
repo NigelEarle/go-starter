@@ -1,18 +1,12 @@
 package main
 
-
 import (
-  "fmt"
-  "os"
+  // import packages
 )
-// reading files on FS
-func main(){
-  file, err := os.Open("random.txt")
-  fmt.Println(file)
 
-  if err != nil {
-    fmt.Println(err)
-    return
+// showcase modified if statements in Golang
+func main() {
+	if err := process(); err != nil {
+    return err
   }
-  defer file.Close()
 }
