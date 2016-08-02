@@ -5,15 +5,13 @@ import (
 )
 
 func main(){
-  add(3, 4)
-}
+  stra := "the spice must flow"
 
-func add(a interface{}, b interface{}) interface{} {
-  switch a.(type) {
-    case int: 
-      fmt.Printf("a is now an int and equals %d\n", a)
-    default:
-      return nil
-  }
-  return nil
+  // convert string to byte array
+  byts := []byte(stra)
+  fmt.Println(byts)
+
+  // convert back to string
+  strb := string(byts)
+  fmt.Println(strb)
 }
