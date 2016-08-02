@@ -4,17 +4,10 @@ import (
   "fmt"
 )
 
-type Saiyan struct {
-  Name string
-  Friends map[string]*Saiyan
-}
-
 func main(){
-  goku := &Saiyan{
-    Name: "Goku",
-    Friends: make(map[string]*Saiyan),
+  lookup := map[string]int{
+    "goku": 9001,
+    "gohan": 2004,
   }
-  
-  goku.Friends["Krillin"] = ... // new structure
-  fmt.Println(goku)
+  fmt.Println(lookup["goku"]) // 9001
 }
