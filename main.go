@@ -9,5 +9,7 @@ func main(){
     "goku": 9001,
     "gohan": 2004,
   }
-  fmt.Println(lookup["goku"]) // 9001
+  for key, value := range lookup{
+    fmt.Println(key, value)
+  }
 }
