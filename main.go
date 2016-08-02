@@ -2,18 +2,17 @@ package main
 
 
 import (
-  "errors"
   "fmt"
+  "os"
 )
-
+// reading files on FS
 func main(){
-  fmt.Println(process(0))
-}
+  file, err := os.Open("random.txt")
+  fmt.Println(file)
 
-func process(count int) error {
-  if count < 1 {
-    return errors.New("Invalid count")
+  if err != nil {
+    fmt.Println(err)
+    return
   }
-  // handle success case here
-  return nil
+  defer file.Close()
 }
