@@ -2,16 +2,17 @@ package main
 
 import (
   "fmt"
+  "time"
 )
 
-type Add func(a int, b int) int
-
 func main(){
-  fmt.Println(process(func(a int, b int) int{
-    return a + b
-  }))
+  fmt.Println("start")
+  go process()
+
+  time.Sleep(time.Millisecond * 10)
+  fmt.Println("done")
 }
 
-func process(adder Add) int {
-  return adder(1, 2)
+func process(){
+  fmt.Println("processing")
 }
