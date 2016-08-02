@@ -4,14 +4,14 @@ import (
   "fmt"
 )
 
+type Add func(a int, b int) int
+
 func main(){
-  stra := "the spice must flow"
+  fmt.Println(process(func(a int, b int) int{
+    return a + b
+  }))
+}
 
-  // convert string to byte array
-  byts := []byte(stra)
-  fmt.Println(byts)
-
-  // convert back to string
-  strb := string(byts)
-  fmt.Println(strb)
+func process(adder Add) int {
+  return adder(1, 2)
 }
