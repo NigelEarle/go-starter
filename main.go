@@ -17,3 +17,5 @@ func main(){
 func process(){
   fmt.Println("processing")
 }
+
+// output --> start processing done -- in that order
