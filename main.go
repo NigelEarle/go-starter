@@ -2,21 +2,19 @@ package main
 
 import (
   "fmt"
+  "math/rand"
+  "sort"
 )
 
 func main(){
-  scores := []int{1, 2, 3, 4, 5}
-  scores = removeAtIndex(scores, 2)
-  fmt.Println(scores)
-}
+  scores := make([]int, 100)
+  for i := 0; i < 100; i++ {
+    scores[i] = int(rand.Int31n(1000))
+  }
+  sort.Ints(scores)
+  fmt.Println("outside loop",scores)
 
-func removeAtIndex(source []int, index int) []int {
-  fmt.Println("source length", len(source))
-  lastIndex := len(source) - 1
-  fmt.Println("removeAtIndex", lastIndex)
-
-  fmt.Println("values to swap", source[index], source[lastIndex])
-  source[index], source[lastIndex] = source[lastIndex], source[index]
-
-  return source[:lastIndex]
+  worst := make([]int, 5)
+  copy(worst, scores[:5])
+  fmt.Println("worst",worst)
 }
