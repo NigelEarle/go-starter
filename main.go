@@ -7,20 +7,19 @@ import (
 )
 
 var (
-  counter = 0
-  lock sync.Mutex // default of sync.Mutex is unlocked
+  // create lock var from sync.Mutex
+  lock sync.Mutex
 )
 
 func main(){
-  for i := 0; i < 20; i++ {
-    go incr()
-  }
+  go func() {
+    fmt.Println("concurrent function")
+    // lock and unlock methods on lock var protects function
+    lock.Lock()
+    defer lock.Unlock()
+  }()
   time.Sleep(time.Millisecond * 10)
+  lock.Lock()
 }
 
-func incr() {
-  lock.Lock() // lock var counter
-  defer lock.Unlock() 
-  counter++
-  fmt.Println(counter)
-}
+
