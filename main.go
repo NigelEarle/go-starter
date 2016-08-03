@@ -4,18 +4,38 @@ import (
   "fmt"
   "time"
 )
+// VERY BAD EXAMPLE READING AND WRITING TO A VARIABLE(var counter) CONCURRENTLY
+var counter = 0
 
 func main(){
-  fmt.Println("start")
-  // run process() function as async like function or separate thread
-  go process()
-
+  for i := 0; i < 20; i++ {
+    go incr()
+  }
   time.Sleep(time.Millisecond * 10)
-  fmt.Println("done")
 }
 
-func process(){
-  fmt.Println("processing")
+func incr() {
+  counter++
+  fmt.Println(counter)
 }
 
-// output --> start processing done -- in that order
+// Output will print ...
+// 1
+// 2
+// 3
+// 4
+// 5
+// 6
+// 7
+// 8
+// 10
+// 11
+// 12
+// 13
+// 14
+// 15
+// 16
+// 17
+// 18
+// 19
+// 9
