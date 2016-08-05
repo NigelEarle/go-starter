@@ -4,33 +4,45 @@ import (
   "fmt"
   "time"
   "math/rand"
+  "sync"
 )
 
-type Worker struct{
+var (
+  lock sync.Mutex
+)
+
+type Worker struct {
   id int
 }
 
 func main() {
   c := make(chan int)
-  for i := 0; i < 5; i++ {
-    worker := Worker{id: i}
-    fmt.Println("WORKER IN FOR LOOP", worker)
-    go worker.process(c)
+  for i := 0; i < 5; i++{
+    w := Worker{id: i}
+    go w.process(c)  
   }
-
   for {
-    fmt.Println("FOR IN MAIN")
-    c <- rand.Int()
+    select {
+      case c <- rand.Int():
+        fmt.Println("SEND DATA TO CHANNEL")
+      case t := <- time.After(time.Millisecond * 100):
+        fmt.Println("TIMED OUT", t)
+
+    }
     time.Sleep(time.Millisecond * 50)
   }
 }
 
 func (w Worker) process(c chan int) {
-  fmt.Println("WORKER PROCESS", w.id)
   for {
-    fmt.Println("WORKER FOR PROCESS")
-    data := <-c
-    fmt.Printf("worker %d got %d\n", w.id, data)
+    select {
+      case data := <- c:
+        fmt.Println(w.id, data)
+      case <- time.After(time.Millisecond * 10):
+        fmt.Println("BREAK TIME")
+    }
+
+    time.Sleep(time.Second)
   }
 }
 
